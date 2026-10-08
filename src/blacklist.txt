@@ -1,0 +1,28 @@
+# ==============================================================================
+# blacklist.txt - Conditional File & Directory Blanking Example
+# Directives:
+#   #if:<key>[:true|false|<value>]
+#   #endif[:<key>]
+# Variables:
+#   <&setting_key>
+# ==============================================================================
+
+# 1. Base files always blanked
+panorama/images/hud/ad_banner.vsvg
+
+# 2. Conditional block (runs when 'hide_hud_decorations' is true)
+#if:hide_hud_decorations
+panorama/images/hud/decorations/**
+panorama/images/hud/flames_<&theme_name>.vsvg
+
+# 3. Nested condition inside 'hide_hud_decorations'
+#if:hide_minimap:true
+materials/ui/minimap/borders/**
+#endif:hide_minimap
+
+# 4. Inverted boolean check (runs when 'custom_sound_pack' is false)
+#if:custom_sound_pack:false
+sounds/ui/default_announcer_shoutout.vsnd_c
+#endif:custom_sound_pack
+
+#endif:hide_hud_decorations

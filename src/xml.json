@@ -1,0 +1,32 @@
+{
+  // xml.json - Conditional Panorama XML modifications and snippet templating
+
+  "panorama/layout/hud/dota_hud_root.xml": [
+    {
+      "if": "hide_hud_decorations",
+      "action": "set_attribute",
+      "selector": "#TopBarFlames",
+      "attribute": "style",
+      "value": "visibility: collapse;"
+    },
+    {
+      "if": "hide_minimap:true",
+      "action": "set_attribute",
+      "selector": "#MinimapContainer",
+      "attribute": "style",
+      "value": "opacity: 0;"
+    },
+    {
+      "action": "set_attribute",
+      "selector": "#CustomStatsBox",
+      "attribute": "style",
+      "value": "opacity: <&hud_opacity>; background-color: <&accent_color>;"
+    },
+    {
+      "if": "theme_name:minimal",
+      "action": "add_child",
+      "selector": "#HUDHeader",
+      "xml": "<Panel id='MinimalIndicator' class='Theme-<&theme_name>' hittest='false' />"
+    }
+  ]
+}

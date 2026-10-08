@@ -1,0 +1,15 @@
+{
+  // remap.json - Conditional reference remapping with string templating
+
+  "models/heroes/common_hero_*.vmdl_c": {
+    "if": "theme_name:minimal",
+    "redirects": {
+      "materials/models/heroes/glow_default.vmat": "materials/models/heroes/glow_<&theme_name>.vmat"
+    }
+  },
+
+  "panorama/layout/dashboard.xml": {
+    "if": "hide_hud_decorations:true",
+    "s2r://panorama/images/decorations/border.vtex": "s2r://panorama/images/empty.vtex"
+  }
+}

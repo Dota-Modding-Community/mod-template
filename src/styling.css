@@ -1,0 +1,36 @@
+/* ============================================================================== */
+/*   styling.css - Conditional Panorama CSS Injection Example */
+/*   Target Indicators: */
+      /* g:panorama/styles/... */
+      /* c:panorama/styles/... */
+/*   Directives: */
+      /* if:<key>[:true|false|<value>] */
+      /* endif[:<key>] */
+/*   Variables: */
+/*     <&setting_key> */
+/* ============================================================================== */
+
+/* g:panorama/styles/hud/dota_hud_dashboard */
+.DashboardRoot {
+    opacity: <&hud_opacity>;
+}
+
+/* if:hide_hud_decorations */
+.DashboardDecoration,
+#HeaderGlowEffect {
+    visibility: collapse;
+    
+    /* if:theme_name:dark */
+    background-color: #000000;
+    /* endif:theme_name */
+    
+    /* if:theme_name:light */
+    background-color: #FFFFFF;
+    /* endif:theme_name */
+}
+
+.HeroAccentBox {
+    border: 2px solid <&accent_color>;
+    box-shadow: 0 0 10px <&accent_color>;
+}
+/* endif:hide_hud_decorations */

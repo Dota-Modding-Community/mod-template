@@ -1,0 +1,15 @@
+{
+  // replacer.json - Asset replacement with conditionality & variable substitution
+
+  "panorama/images/hud/cursor.png": {
+    "source": "panorama/images/hud/cursors/<&theme_name>_cursor.png",
+    "if": "hide_hud_decorations"
+  },
+
+  "sounds/ui/ping.vsnd_c": {
+    "source": "sounds/ui/ping_minimal.vsnd_c",
+    "if": "custom_sound_pack:true"
+  },
+
+  "materials/ui/default_banner.vmat_c": "materials/ui/banners/<&theme_name>_banner.vmat_c"
+}
